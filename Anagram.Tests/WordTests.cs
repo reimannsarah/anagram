@@ -11,8 +11,16 @@ namespace Anagram.Tests
     [TestMethod]
     public void WordConstructor_CreatesInstanceOfWord_Word()
     {
-      Word newWord = new Word();
+      Word newWord = new Word("folly");
       Assert.AreEqual(typeof(Word), newWord.GetType());
+    }
+
+    [TestMethod]
+    public void WordConstructor_SetsFieldValueToWord_Word()
+    {
+      string expected = "folly";
+      Word newWord = new Word("folly");
+      Assert.AreEqual(expected, newWord.UserWord);
     }
   }
 }
