@@ -22,5 +22,24 @@ namespace Anagram.Tests
       Word newWord = new Word("folly");
       Assert.AreEqual(expected, newWord.UserWord);
     }
+
+    [TestMethod]
+    public void WordArraySort_ArraysAndSortsWord_Array()
+    {
+      char[] expected = {'a', 'b', 'd', 'e', 'r'};
+      Word newWord = new Word("beard");
+      CollectionAssert.AreEqual(expected, newWord.ArraySort());
+    }
+
+    [TestMethod]
+    public void WordList_AddsWordsToList_List()
+    {
+      Word newWord = new Word("beard");
+      Word anotherWord = new Word("bread");
+      newWord.AddToList();
+      anotherWord.AddToList();
+      List<string> expected = new List<string> {"beard", "bread"};
+      CollectionAssert.AreEqual(expected, Word.GetAll());
+    }
   }
 }
