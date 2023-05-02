@@ -30,9 +30,9 @@ namespace Anagram.Tests
     [TestMethod]
     public void WordArraySort_ArraysAndSortsWord_Array()
     {
-      char[] expected = {'a', 'b', 'd', 'e', 'r'};
+      string expected = "abder";
       Word newWord = new Word("beard");
-      CollectionAssert.AreEqual(expected, newWord.ArraySort());
+      Assert.AreEqual(expected, Word.ArraySortJoin(Word.WordList[0]));
     }
 
     [TestMethod]
