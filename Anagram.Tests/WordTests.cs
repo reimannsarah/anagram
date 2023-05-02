@@ -6,8 +6,12 @@ using System.Collections.Generic;
 namespace Anagram.Tests
 {
   [TestClass]
-  public class WordTests
+  public class WordTests : IDisposable
   {
+    public void Dispose()
+    {
+      Word.ClearAll();
+    }
     [TestMethod]
     public void WordConstructor_CreatesInstanceOfWord_Word()
     {
@@ -36,8 +40,6 @@ namespace Anagram.Tests
     {
       Word newWord = new Word("beard");
       Word anotherWord = new Word("bread");
-      newWord.AddToList();
-      anotherWord.AddToList();
       List<string> expected = new List<string> {"beard", "bread"};
       CollectionAssert.AreEqual(expected, Word.GetAll());
     }
