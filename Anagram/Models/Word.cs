@@ -6,31 +6,31 @@ namespace Anagram.Models
   public class Word
   {
     public string UserWord { get; set; }
-    private static List<string> _wordList = new List<string> { };
+    public static List<string> WordList = new List<string> { };
 
     public Word(string inputWord)
     {
         UserWord = inputWord;
-        _wordList.Add(this.UserWord);
-
+        WordList.Add(this.UserWord);
     }
 
     
     public static List<string> GetAll()
     {
-      return _wordList;
+      return WordList;
     }
 
     public static void ClearAll()
     {
-      _wordList.Clear();
+      WordList.Clear();
     }
 
-    public char[] ArraySort()
+    public static string ArraySortJoin(string word)
     {
-        char[] wordArray = this.UserWord.ToCharArray();
+        char[] wordArray = word.ToCharArray();
         Array.Sort(wordArray);
-        return wordArray;
+        string sorted = new string (wordArray);
+        return sorted;
     }
   }
 }
